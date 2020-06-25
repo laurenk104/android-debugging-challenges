@@ -3,7 +3,11 @@ package com.codepath.debuggingchallenges.activities;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.codepath.debuggingchallenges.R;
 
@@ -11,10 +15,22 @@ public class ChangeBackgroundActivity extends AppCompatActivity {
 
     private int oldColor = Color.BLUE;
 
+    Button btnGo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_background);
+
+        btnGo = (Button) findViewById(R.id.btnGo);
+        //Log.d("btn", btnGo.toString());
+        //btnGo.setClickable(true);
+        btnGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onGoClick(btnGo);
+            }
+        });
     }
 
     public void onGoClick(View view) {
